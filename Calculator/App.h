@@ -16,7 +16,7 @@ private:
 
 	
 public:
-	virtual bool OnInit();
+	virtual bool OnInit() override;
 
 };
 

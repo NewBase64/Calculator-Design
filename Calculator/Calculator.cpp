@@ -90,27 +90,27 @@ void Calculator::ButtonClicked(wxCommandEvent& out)
 	int NumCal = out.GetId();
 	wxString Outputdisplay = "";
 	Outputdisplay << NumCal;
-	if (NumCal>=0 && NumCal<=9)
+	if (NumCal >= 0 && NumCal <= 9)
 	{
 		txt1->AppendText(Outputdisplay);
 
 	}
 
-	if (NumCal==11)
+	if (NumCal == 11)
 	{
 		txt1->AppendText(".");
 
 
 	}
 
-	if (NumCal==12)
+	if (NumCal == 12)
 	{
 
 		txt1->AppendText("=");
 
 	}
 
-	if (NumCal==13)
+	if (NumCal == 13)
 	{
 
 		txt1->AppendText("/");
@@ -135,6 +135,34 @@ void Calculator::ButtonClicked(wxCommandEvent& out)
 		txt1->AppendText("+");
 
 	}
+	if (NumCal == 17)
+	{
 
+		txt1->AppendText("MOD");
 
+	}
+	if (NumCal == 18)
+	{
+
+		txt1->AppendText("BIN");
+
+	}
+	if (NumCal == 19)
+	{
+
+		txt1->AppendText("HEX");
+
+	}
+	if (NumCal == 20)
+	{
+
+		txt1->AppendText("DEC");
+
+	}
+	if (NumCal == 21)
+	{
+
+		txt1->AppendText("MOD");
+
+	}
 }

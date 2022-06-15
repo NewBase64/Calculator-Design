@@ -1,7 +1,7 @@
 #pragma once
 #include "wx/wx.h"
 
-class Calculator:public wxFrame
+class Calculator :public wxFrame
 {
 
 
@@ -12,9 +12,9 @@ public:
 
 public:
 
-	wxButton *btn1 = nullptr;
 
-	wxTextCtrl *txt1 = nullptr;
+
+	wxTextCtrl* txt1 = nullptr;
 	void ButtonClicked(wxCommandEvent& Button);
 	wxDECLARE_EVENT_TABLE();
 

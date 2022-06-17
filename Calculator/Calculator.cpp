@@ -3,7 +3,7 @@
 wxBEGIN_EVENT_TABLE(Calculator, wxFrame)
 //
 //
-EVT_BUTTON(0 , ButtonClicked)
+EVT_BUTTON(0, ButtonClicked)
 //
 EVT_BUTTON(1, ButtonClicked)
 //
@@ -32,19 +32,26 @@ EVT_BUTTON(12, ButtonClicked)
 
 EVT_BUTTON(13, ButtonClicked)
 
-EVT_BUTTON(14 ,ButtonClicked)
+EVT_BUTTON(14, ButtonClicked)
 
 EVT_BUTTON(15, ButtonClicked)
 
 EVT_BUTTON(16, ButtonClicked)
 
-
-
-
-
+EVT_BUTTON(17, ButtonClicked)
+EVT_BUTTON(18, ButtonClicked)
+EVT_BUTTON(19, ButtonClicked)
+EVT_BUTTON(20, ButtonClicked)
+EVT_BUTTON(21, ButtonClicked)
 
 
 wxEND_EVENT_TABLE()
+
+
+
+wxString _num1;
+wxString _num2;
+wxString sym;
 
 Calculator::Calculator() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSize(385, 600))
 {
@@ -101,6 +108,17 @@ void Calculator::ButtonClicked(wxCommandEvent& out)
 	int NumCal = out.GetId();
 	wxString Outputdisplay = "";
 	Outputdisplay << NumCal;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	if (NumCal >= 0 && NumCal <= 9)
 	{
 		txt1->AppendText(Outputdisplay);
@@ -117,7 +135,7 @@ void Calculator::ButtonClicked(wxCommandEvent& out)
 	if (NumCal == 12)
 	{
 
-		txt1->AppendText("=");
+		
 
 	}
 
@@ -173,7 +191,7 @@ void Calculator::ButtonClicked(wxCommandEvent& out)
 	if (NumCal == 21)
 	{
 
-		txt1->AppendText("C");
+		txt1->Clear();
 
 	}
 }

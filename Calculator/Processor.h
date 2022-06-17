@@ -20,7 +20,7 @@ public:
 	}
 	void SetBaseNumber(int number) {
 
-
+		dAT = number;
 
 	}
 

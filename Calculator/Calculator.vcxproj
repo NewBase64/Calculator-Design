@@ -22,6 +22,7 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="ButtonFac.h" />
     <ClInclude Include="Calculator.h" />
+    <ClInclude Include="Processor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />

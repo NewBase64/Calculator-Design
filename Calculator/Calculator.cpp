@@ -1,5 +1,6 @@
 #include "Calculator.h"
 #include "ButtonFac.h"
+#include "Processor.h"
 wxBEGIN_EVENT_TABLE(Calculator, wxFrame)
 //
 //
@@ -48,10 +49,12 @@ EVT_BUTTON(21, ButtonClicked)
 wxEND_EVENT_TABLE()
 
 
+int num1, num2;
+wxString _num1 = "";
+wxString _num2 = "";
+bool symbol = false;
+wxString sym = "";
 
-wxString _num1;
-wxString _num2;
-wxString sym;
 
 Calculator::Calculator() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSize(385, 600))
 {
@@ -109,89 +112,140 @@ void Calculator::ButtonClicked(wxCommandEvent& out)
 	wxString Outputdisplay = "";
 	Outputdisplay << NumCal;
 	
+	Processor* processor = Processor::GetProcess();
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	if (NumCal >= 0 && NumCal <= 9)
+	if (out.GetId() >= 0 && out.GetId() < 10)
 	{
-		txt1->AppendText(Outputdisplay);
-
-	}
-
-	if (NumCal == 11)
-	{
-		txt1->AppendText(".");
-
-
-	}
-
-	if (NumCal == 12)
-	{
-
 		
+		
+		if (symbol == true)
+		{
+			if (num2 != 0)
+			{
+				_num2 = std::to_string(num2);
+				_num2 += std::to_string(out.GetId());
+			}
+			else
+			{
+				_num2 += std::to_string(out.GetId());
+			}
 
+
+		}
+
+
+		if (NumCal >= 0 && NumCal <= 9)
+		{
+			txt1->AppendText(Outputdisplay);
+
+		}
 	}
 
-	if (NumCal == 13)
-	{
-
-		txt1->AppendText("/");
-
-	}
-
-	if (NumCal == 14)
-	{
-
-		txt1->AppendText("*");
-
-	}
-	if (NumCal == 15)
-	{
-		txt1->AppendText("-");
+		if (NumCal == 11)
+		{
+			txt1->AppendText(".");
 
 
-	}
-	if (NumCal == 16)
-	{
+		}
 
-		txt1->AppendText("+");
+		if (NumCal == 12)
+		{
+			
+				symbol = false;
+				if (sym == "+")
+				{
+					num1 = wxAtoi(_num1);
+					num2 = wxAtoi(_num2);
+					txt1->Clear();
+					txt1->AppendText(processor->GetAddition(num1, num2));
+				}
+				else if (sym == "-")
+				{
+					num1 = wxAtoi(_num1);
+					num2 = wxAtoi(_num2);
+					txt1->Clear();
+					txt1->AppendText(processor->GetSubtraction(num1, num2));
+				}
+				else if (sym == "/")
+				{
+					num1 = wxAtoi(_num1);
+					num2 = wxAtoi(_num2);
+					txt1->Clear();
+					txt1->AppendText(processor->GetDivide(num1, num2));
+				}
+				else if (sym == "*")
+				{
+					num1 = wxAtoi(_num1);
+					num2 = wxAtoi(_num2);
+					txt1->Clear();
+					txt1->AppendText(processor->GetMultiply(num1, num2));
+				}
+				_num2.Clear();
+				_num1.Clear();
+				num1 = 0;
+				num2 = 0;
+			
 
-	}
-	if (NumCal == 17)
-	{
 
-		txt1->AppendText("MOD");
+		}
 
-	}
-	if (NumCal == 18)
-	{
+		if (NumCal == 13)
+		{
+			_num1 = txt1->GetValue();
+			txt1->AppendText("/");
+			sym = "/";
+			symbol = true;
+		}
 
-		txt1->AppendText("BIN");
+		if (NumCal == 14)
+		{
 
-	}
-	if (NumCal == 19)
-	{
+			txt1->AppendText("*");
 
-		txt1->AppendText("HEX");
+		}
+		if (NumCal == 15)
+		{
+			_num1 = txt1->GetValue();
+			txt1->AppendText("-");
+			sym = "-";
+			symbol = true;
 
-	}
-	if (NumCal == 20)
-	{
+		}
+		if (NumCal == 16)
+		{
+			_num1 = txt1->GetValue();
+			txt1->AppendText("+");
+			sym = "+";
+			symbol = true;
+		}
+		if (NumCal == 17)
+		{
 
-		txt1->AppendText("DEC");
+			txt1->AppendText("MOD");
 
-	}
-	if (NumCal == 21)
-	{
+		}
+		if (NumCal == 18)
+		{
+			processor->SetBaseNumber(wxAtoi(txt1->GetValue()));
+			txt1->Clear();
+			txt1->AppendText(processor->GetBiny());
+		}
+		if (NumCal == 19)
+		{
+			processor->SetBaseNumber(wxAtoi(txt1->GetValue()));
+			txt1->Clear();
+			txt1->AppendText(processor->GetHex());
+		}
+		if (NumCal == 20)
+		{
 
-		txt1->Clear();
+			txt1->AppendText("DEC");
 
-	}
+		}
+		if (NumCal == 21)
+		{
+
+			txt1->Clear();
+
+		}
 }

@@ -16,6 +16,13 @@ public:
 
 	wxTextCtrl* txt1 = nullptr;
 	void ButtonClicked(wxCommandEvent& Button);
+
+
+
+
+
+
+
 	wxDECLARE_EVENT_TABLE();
 
 };

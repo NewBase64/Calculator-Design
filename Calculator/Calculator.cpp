@@ -1,6 +1,12 @@
 #include "Calculator.h"
 #include "ButtonFac.h"
 #include "Processor.h"
+#include "IBaseCommand.h"
+#include <vector>
+
+
+
+
 wxBEGIN_EVENT_TABLE(Calculator, wxFrame)
 //
 //

@@ -11,8 +11,8 @@ private:
 	int num1;
 	int num2;
 
-	Processor() {}
 public:
+	Processor() {}
 
 	static Processor* GetProcess() {
 		if (processor == nullptr)

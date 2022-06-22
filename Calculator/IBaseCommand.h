@@ -3,6 +3,6 @@ class IBaseCommand
 {
 public:
 
-	virtual void Execute() = 0;
+	virtual std::string Execute() =0;
 
 };

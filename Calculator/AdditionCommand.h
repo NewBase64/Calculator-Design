@@ -6,16 +6,16 @@
 class AdditionCommand : public IBaseCommand {
 private:
 
-	Calculator* _Calculator = nullptr;
+	Processor* _Process = nullptr;
 	int num1 =0;
 	int num2=0;
-	int ans = 0;
+	
 	
 public:
-	AdditionCommand(Calculator* calculator, int _num1, int _num2) {
+	AdditionCommand(Processor* Process, int _num1, int _num2) {
 
 
-		_Calculator = calculator;
+		_Process = Process;
 
 		num1 = _num1;
 		num2 = _num2;
@@ -23,10 +23,10 @@ public:
 
 	}
 
-	void Execute() {
+  std::string Execute() {
 
 
-
-
+	return	_Process->GetAddition(num1, num2);
+		
 	}
 };

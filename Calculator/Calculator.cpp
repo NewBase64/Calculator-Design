@@ -3,7 +3,10 @@
 #include "Processor.h"
 #include "IBaseCommand.h"
 #include <vector>
-
+#include "AdditionCommand.h"
+#include "SubtractCommand.h"
+#include "DivideCommand.h"
+#include "MultipCommand.h"
 
 
 
@@ -60,7 +63,8 @@ wxString _num1 = "";
 wxString _num2 = "";
 bool symbol = false;
 wxString sym = "";
-
+Processor process;
+std::vector<IBaseCommand*> commands;
 
 Calculator::Calculator() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSize(385, 600))
 {
@@ -156,35 +160,100 @@ void Calculator::ButtonClicked(wxCommandEvent& out)
 
 		if (NumCal == 12)
 		{
-			
+			std::string ans;
 				symbol = false;
 				if (sym == "+")
 				{
 					num1 = wxAtoi(_num1);
 					num2 = wxAtoi(_num2);
+
+
+
+
 					txt1->Clear();
-					txt1->AppendText(processor->GetAddition(num1, num2));
+
+
+
+					AdditionCommand Addition(&process, num1, num2);
+					commands.push_back(&Addition);
+					
+					for (int i = 0; i < commands.size(); i++) {
+						
+						
+						
+						
+						ans =commands[i]->Execute();
+						txt1->AppendText(ans);
+						
+					}
+					commands.clear();
+
+
+
+
+
+
 				}
 				else if (sym == "-")
 				{
 					num1 = wxAtoi(_num1);
 					num2 = wxAtoi(_num2);
 					txt1->Clear();
-					txt1->AppendText(processor->GetSubtraction(num1, num2));
+					SubtractCommand Subtract(&process, num1, num2);
+					commands.push_back(&Subtract);
+
+					for (int i = 0; i < commands.size(); i++) {
+
+
+
+
+						ans = commands[i]->Execute();
+						txt1->AppendText(ans);
+
+					}
+					commands.clear();
+
 				}
 				else if (sym == "/")
 				{
 					num1 = wxAtoi(_num1);
 					num2 = wxAtoi(_num2);
 					txt1->Clear();
-					txt1->AppendText(processor->GetDivide(num1, num2));
+					DivideCommand _divide(&process, num1, num2);
+					commands.push_back(&_divide);
+
+					for (int i = 0; i < commands.size(); i++) {
+
+
+
+
+						ans = commands[i]->Execute();
+						txt1->AppendText(ans);
+
+					}
+					commands.clear();
 				}
 				else if (sym == "*")
 				{
 					num1 = wxAtoi(_num1);
 					num2 = wxAtoi(_num2);
 					txt1->Clear();
-					txt1->AppendText(processor->GetMultiply(num1, num2));
+
+
+					MultipleCommand Mult(&process, num1, num2);
+					commands.push_back(&Mult);
+
+					for (int i = 0; i < commands.size(); i++) {
+
+
+
+
+						ans = commands[i]->Execute();
+						txt1->AppendText(ans);
+
+					}
+					commands.clear();
+					
 				}
 				_num2.Clear();
 				_num1.Clear();
@@ -205,9 +274,10 @@ void Calculator::ButtonClicked(wxCommandEvent& out)
 
 		if (NumCal == 14)
 		{
-
+			_num1 = txt1->GetValue();
 			txt1->AppendText("*");
-
+			sym = "*";
+			symbol = true;
 		}
 		if (NumCal == 15)
 		{

@@ -1,8 +1,8 @@
 #include "Calculator.h"
-#include "ButtonFac.h"
-#include "Processor.h"
-#include "IBaseCommand.h"
 #include <vector>
+#include "Processor.h"
+#include "ButtonFac.h"
+#include "IBaseCommand.h"
 #include "AdditionCommand.h"
 #include "SubtractCommand.h"
 #include "DivideCommand.h"
@@ -58,13 +58,13 @@ EVT_BUTTON(21, ButtonClicked)
 wxEND_EVENT_TABLE()
 
 
-int num1, num2;
-wxString _num1 = "";
-wxString _num2 = "";
-bool symbol = false;
-wxString sym = "";
-Processor process;
-std::vector<IBaseCommand*> commands;
+//int num1, num2;
+//wxString _num1 = "";
+//wxString _num2 = "";
+//bool symbol = false;
+//wxString sym = "";
+//Processor process;
+//std::vector<IBaseCommand*> commands;
 
 Calculator::Calculator() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSize(385, 600))
 {
@@ -174,7 +174,7 @@ void Calculator::ButtonClicked(wxCommandEvent& out)
 
 
 
-					AdditionCommand Addition(&process, num1, num2);
+					AdditionCommand Addition(processor, num1, num2);
 					commands.push_back(&Addition);
 					
 					for (int i = 0; i < commands.size(); i++) {
@@ -199,7 +199,7 @@ void Calculator::ButtonClicked(wxCommandEvent& out)
 					num1 = wxAtoi(_num1);
 					num2 = wxAtoi(_num2);
 					txt1->Clear();
-					SubtractCommand Subtract(&process, num1, num2);
+					SubtractCommand Subtract(processor, num1, num2);
 					commands.push_back(&Subtract);
 
 					for (int i = 0; i < commands.size(); i++) {
@@ -219,7 +219,7 @@ void Calculator::ButtonClicked(wxCommandEvent& out)
 					num1 = wxAtoi(_num1);
 					num2 = wxAtoi(_num2);
 					txt1->Clear();
-					DivideCommand _divide(&process, num1, num2);
+					DivideCommand _divide(processor, num1, num2);
 					commands.push_back(&_divide);
 
 					for (int i = 0; i < commands.size(); i++) {
@@ -240,7 +240,7 @@ void Calculator::ButtonClicked(wxCommandEvent& out)
 					txt1->Clear();
 
 
-					MultipleCommand Mult(&process, num1, num2);
+					MultipleCommand Mult(processor, num1, num2);
 					commands.push_back(&Mult);
 
 					for (int i = 0; i < commands.size(); i++) {

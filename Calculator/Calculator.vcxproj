@@ -33,7 +33,7 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="ButtonFac.cpp" />
     <ClCompile Include="Calculator.cpp" />
-    <ClCompile Include="IBaseCommand.cpp" />
+    <ClCompile Include="Processor.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

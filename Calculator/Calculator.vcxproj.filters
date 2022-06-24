@@ -53,7 +53,7 @@
     <ClCompile Include="ButtonFac.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IBaseCommand.cpp">
+    <ClCompile Include="Processor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

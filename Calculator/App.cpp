@@ -1,4 +1,5 @@
 #include "App.h"
+#include "Calculator.h"
 
 wxIMPLEMENT_APP(App);
 

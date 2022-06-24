@@ -1,8 +1,7 @@
 #pragma once
 
 #include "wx/wx.h"
-#include "Calculator.h"
-
+class Calculator;
 class App : public wxApp
 {
 public:

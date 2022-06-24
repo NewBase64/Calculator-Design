@@ -1,7 +1,6 @@
 #pragma once
 
 #include "IBaseCommand.h"
-#include "Calculator.h"
 #include "Processor.h"
 
 class MultipleCommand : public IBaseCommand {

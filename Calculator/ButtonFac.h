@@ -1,7 +1,7 @@
 #pragma once
 #include "wx/wx.h"
-#include "Calculator.h"
-#include "App.h"
+
+class Calculator;
 class ButtonFac 
 {
 public:

@@ -1,8 +1,6 @@
 #pragma once
 #include <string>
-#include "Calculator.h"
-#include "App.h"
-	class Processor
+class Processor
 {
 private:
 	static Processor* processor;
@@ -11,8 +9,10 @@ private:
 	int num1;
 	int num2;
 
-public:
 	Processor() {}
+    Processor(Processor& other) = delete;
+    void operator=(const Processor& other) = delete;
+public:
 
 	static Processor* GetProcess() {
 		if (processor == nullptr)
@@ -107,8 +107,6 @@ public:
         return multi;
     }
 
-	Processor(Processor& other) = delete;
-	void operator=(const Processor& other) = delete;
 
 
 
@@ -118,4 +116,4 @@ public:
 
 
 };
-Processor* Processor::processor = nullptr;
+

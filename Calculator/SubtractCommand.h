@@ -1,6 +1,5 @@
 #pragma once
 #include "IBaseCommand.h"
-#include "Calculator.h"
 #include "Processor.h"
 
 class SubtractCommand : public IBaseCommand {

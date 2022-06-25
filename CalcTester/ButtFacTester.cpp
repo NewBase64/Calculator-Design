@@ -56,68 +56,82 @@ namespace ButtFacTester
 		
 		
 		
-		/*
-		TEST_METHOD(FourMinus16isNegativeEight)
+		TEST_METHOD(Button4)
 		{
-			wxString ans;
-			SubtractCommand* sub = new SubtractCommand(Process, 4, 16);
-			ans = sub->Execute();
-			Assert::AreEqual(ans, "-12");
+			Calculator frame;
+
+			wxButton* button = nullptr;
+			ButtonFac* fac = new ButtonFac(&frame);
+			button = fac->CreateAddButton("17", 56, 110, 240, 70, 70);
+
+			Assert::AreNotEqual(button->GetId(), 15);
+
 		}
 
-		TEST_METHOD(FiveMultFiveisTWENTYFIVE)
+		TEST_METHOD(Button5)
 		{
-			wxString ans;
-			MultipleCommand* mult = new MultipleCommand(Process, 5, 5);
-			ans = mult->Execute();
-			Assert::AreEqual(ans, "25");
+			Calculator frame;
+
+			wxButton* button = nullptr;
+			ButtonFac* fac = new ButtonFac(&frame);
+			button = fac->CreateAddButton("17", 28, 110, 240, 70, 70);
+
+			Assert::AreEqual(button->GetId(), 28);
 		}
 
-		TEST_METHOD(SixDivideSixisOne)
+		TEST_METHOD(Button6)
 		{
-			wxString ans;
-			DivideCommand* Div = new DivideCommand(Process, 6, 6);
-			ans = Div->Execute();
-			Assert::AreEqual(ans, "1");
+			Calculator frame;
+
+			wxButton* button = nullptr;
+			ButtonFac* fac = new ButtonFac(&frame);
+			button = fac->CreateAddButton("17", 412, 110, 240, 70, 70);
+
+			Assert::AreEqual(button->GetId(), 412);
 		}
 
 
 
-		TEST_METHOD(FourPLusNegativeFourisZero)
+		TEST_METHOD(Button7)
 		{
-			wxString ans;
-			AdditionCommand* add = new AdditionCommand(Process, 4, -4);
-			ans = add->Execute();
-			Assert::AreEqual(ans, "0");
+			Calculator frame;
+
+			wxButton* button = nullptr;
+			ButtonFac* fac = new ButtonFac(&frame);
+			button = fac->CreateAddButton("17", 1, 110, 240, 70, 70);
+
+			Assert::AreEqual(button->GetId(), 1);
 		}
-		TEST_METHOD(SevenPLusNegativeFourisnotZero)
+		TEST_METHOD(Button8)
 		{
-			wxString ans;
-			AdditionCommand* add = new AdditionCommand(Process, 7, -4);
-			ans = add->Execute();
-			Assert::AreNotEqual(ans, "0");
+			Calculator frame;
+
+			wxButton* button = nullptr;
+			ButtonFac* fac = new ButtonFac(&frame);
+			button = fac->CreateAddButton("17", 21, 110, 240, 70, 70);
+
+			Assert::AreNotEqual(button->GetId(), 28);
 		}
-		TEST_METHOD(BINTestOne)
+		TEST_METHOD(Button9)
 		{
-			Processor* Process = Processor::GetProcess();
+			Calculator frame;
 
-			int temp = 19;
-			wxString ans;
+			wxButton* button = nullptr;
+			ButtonFac* fac = new ButtonFac(&frame);
+			button = fac->CreateAddButton("17", 77, 110, 240, 70, 70);
 
-			Process->SetBaseNumber(temp);
-			ans = Process->GetBiny();
-			Assert::AreEqual(ans, "00000000000000000000000000010011");
+			Assert::AreEqual(button->GetId(), 77);
 		}
-		TEST_METHOD(BINTestTWO)
+		TEST_METHOD(Button10)
 		{
-			Processor* Process = Processor::GetProcess();
+			Calculator frame;
 
-			int temp = 29;
-			wxString ans;
+			wxButton* button = nullptr;
+			ButtonFac* fac = new ButtonFac(&frame);
+			button = fac->CreateAddButton("17", 28, 110, 240, 70, 70);
 
-			Process->SetBaseNumber(temp);
-			ans = Process->GetBiny();
-			Assert::AreEqual(ans, "00000000000000000000000000011101");
-		}*/
+			Assert::AreEqual(button->GetId(), 28);
+
+		}
 	};
 }
